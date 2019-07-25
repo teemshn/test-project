@@ -66,7 +66,6 @@ const App = () => {
 
   function onPressEdit(id, str) {
     setTodolist({ ...todolist, [id]: { ...todolist[id], title: str } });
-    _SaveTodolist();
   }
 
   function onPressRemove(id) {
@@ -76,8 +75,10 @@ const App = () => {
   }
 
   function onPressDone(id) {
-    setTodolist({ ...todolist, [id]: { ...todolist[id], isDone: true } });
-    _SaveTodolist();
+    setTodolist({
+      ...todolist,
+      [id]: { ...todolist[id], isDone: !todolist[id].isDone }
+    });
   }
 
   return (

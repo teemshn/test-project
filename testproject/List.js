@@ -40,7 +40,7 @@ function _ListItem(props) {
           flex: 2,
           margin: 10,
           marginLeft: 0,
-          textDecorationLine: "line-through"
+          textDecorationLine: props.isDone ? "line-through" : "none"
         }}
       >
         {props.title}
