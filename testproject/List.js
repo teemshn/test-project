@@ -8,12 +8,13 @@ export default function ListContainer(props) {
   return (
     <View style={styles.container}>
       <ScrollView>
-        <Text>{console.log("in list : " + JSON.stringify(props))}</Text>
-        <FlatList
-          data={props.data == null ? [] : Object.values(props.data)}
-          renderItem={({ item }) => <_ListItem {...props} {...item} />}
-          keyExtractor={item => item.id}
-        />
+        {props.data == null ? null : (
+          <FlatList
+            data={Object.values(props.data)}
+            renderItem={({ item }) => <_ListItem {...props} {...item} />}
+            keyExtractor={item => item.id}
+          />
+        )}
       </ScrollView>
     </View>
   );
