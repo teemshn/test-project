@@ -5,9 +5,11 @@
  * @format
  * @flow
  */
+import mygetname from "./mymodules/sss";
 
 import React, { useState, useEffect } from "react";
-import { StyleSheet, Text, View, AsyncStorage } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
+import AsyncStorage from "@react-native-community/async-storage";
 
 import { Colors } from "react-native/Libraries/NewAppScreen";
 import uuidv4 from "uuid/v4";
@@ -48,6 +50,7 @@ const App = () => {
   useEffect(() => {
     _SaveTodolist();
     console.log(todolist);
+    mygetname.show("Awesome", mygetname.SHORT);
   }, [todolist]);
 
   async function onPressAdd(str) {
